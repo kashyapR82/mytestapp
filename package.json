@@ -1,0 +1,29 @@
+{
+  "name": "simple-sms-list-plugin",
+  "version": "1.0.5",
+  "description": "Cordova plugin to operate SMS List",
+  "cordova": {
+    "id": "simple-sms-list-plugin",
+    "platforms": [
+      "android"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kashyapR82/simple-sms-list.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kashyapR82/simple-sms-list.git"
+  },
+  "keywords": [
+    "cordova",
+    "ecosystem:cordova",
+    "sms"
+   
+  ],
+  "author": {
+    "name": "Rajesh",
+    "email": "info@guaranteedshop.com"
+  },
+  "license": "MIT"
+}
