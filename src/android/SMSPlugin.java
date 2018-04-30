@@ -236,12 +236,13 @@ extends CordovaPlugin {
         int fid = filter.has("_id") ? filter.optInt("_id") : -1;
         String faddress = filter.optString(ADDRESS);
         String fcontent = filter.optString(BODY);
+		String fdate = filter.optString(DATE);
         int indexFrom = filter.has("indexFrom") ? filter.optInt("indexFrom") : 0;
         int maxCount = filter.has("maxCount") ? filter.optInt("maxCount") : 200;
         JSONArray jsons = new JSONArray();
         Activity ctx = this.cordova.getActivity();
         Uri uri = Uri.parse((SMS_URI_ALL + uri_filter));
-        Cursor cur = ctx.getContentResolver().query(uri, (String[])null, "", (String[])null, null);
+        Cursor cur = ctx.getContentResolver().query(uri, (String[])null, "", (String[])null, (String[])null, null);
         int i = 0;
         while (cur.moveToNext()) {
             JSONObject json;
@@ -254,6 +255,8 @@ extends CordovaPlugin {
                 matchFilter = PhoneNumberUtils.compare(faddress, cur.getString(cur.getColumnIndex(ADDRESS)).trim());
             } else if (fcontent.length() > 0) {
                 matchFilter = fcontent.equals(cur.getString(cur.getColumnIndex(BODY)).trim());
+			} else if (fdate.length() > 0) {
+                matchFilter = fdate.equals(cur.getString(cur.getColumnIndex(DATE)).trim());
             } else {
                 matchFilter = true;
             }
